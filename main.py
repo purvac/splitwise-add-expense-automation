@@ -3,6 +3,7 @@ import logging
 from splitwise import Splitwise
 from splitwise.expense import Expense
 from dotenv import load_dotenv
+from datetime import datetime
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -10,12 +11,13 @@ logging.getLogger("requests_oauthlib").setLevel(logging.INFO)
 logging.getLogger("urllib3").setLevel(logging.INFO)
 logging.getLogger("oauthlib").setLevel(logging.INFO)
 
-# Configure the following variables
-TARGET_GROUP = "Amey-Purva"
-EXPENSE_AMOUNT = "1.00"  # Set the total amount of the expense
-EXPENSE_DESCRIPTION = "Test Expense from API"
-
 load_dotenv()
+
+current_month = datetime.today().strftime("%B %Y")
+# Configure the following variables
+TARGET_GROUP = "Amey-Purva"  # Set the target group name
+EXPENSE_AMOUNT = "1.00"  # Set the total amount of the expense
+EXPENSE_DESCRIPTION = "{current_month} YouTube Premium"  # Set the description of the expense   
 
 splitwise = Splitwise(
     consumer_key=os.getenv('CONSUMER_KEY'),
