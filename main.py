@@ -17,7 +17,7 @@ current_month = datetime.today().strftime("%B %Y")
 # Configure the following variables
 TARGET_GROUP = "Amey-Purva"  # Set the target group name
 EXPENSE_AMOUNT = "1.00"  # Set the total amount of the expense
-EXPENSE_DESCRIPTION = "{current_month} YouTube Premium"  # Set the description of the expense   
+EXPENSE_DESCRIPTION = f"{current_month} YouTube Premium"  # Set the description of the expense   
 
 splitwise = Splitwise(
     consumer_key=os.getenv('CONSUMER_KEY'),
