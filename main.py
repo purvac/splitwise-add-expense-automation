@@ -11,7 +11,7 @@ logging.getLogger("urllib3").setLevel(logging.INFO)
 logging.getLogger("oauthlib").setLevel(logging.INFO)
 
 # Configure the following variables
-TARGET_GROUP = "YouTube premium"
+TARGET_GROUP = "YouTube premium "
 EXPENSE_AMOUNT = "1.00"  # Set the total amount of the expense
 EXPENSE_DESCRIPTION = "Test Expense from API"
 
@@ -30,8 +30,8 @@ for group in splitwise_groups:
         target_group_id = group.getId()
         expense = Expense()
         expense.setGroupId(target_group_id)
-        expense.setCost(EXPENSE_AMOUNT) # Set the total amount of the expense
-        expense.setDescription(EXPENSE_DESCRIPTION) # Set a description for the expense
+        expense.setCost(EXPENSE_AMOUNT) 
+        expense.setDescription(EXPENSE_DESCRIPTION) 
         
         expense.setSplitEqually()
 
@@ -45,3 +45,5 @@ for group in splitwise_groups:
         except Exception as e:
             print(f"An error occurred: {e}")
         break
+    else:
+        print(f"Group '{group.getName()}' does not match target group '{TARGET_GROUP}'.")
