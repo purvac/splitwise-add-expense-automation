@@ -15,8 +15,8 @@ load_dotenv()
 
 current_month = datetime.today().strftime("%B %Y")
 # Configure the following variables
-TARGET_GROUP = "Amey-Purva"  # Set the target group name
-EXPENSE_AMOUNT = "1.00"  # Set the total amount of the expense
+TARGET_GROUP = "YouTube premium "  # Set the target group name
+EXPENSE_AMOUNT = "22.99"  # Set the total amount of the expense
 EXPENSE_DESCRIPTION = f"{current_month} YouTube Premium"  # Set the description of the expense   
 
 splitwise = Splitwise(
