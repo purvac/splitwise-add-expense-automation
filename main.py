@@ -11,7 +11,7 @@ logging.getLogger("urllib3").setLevel(logging.INFO)
 logging.getLogger("oauthlib").setLevel(logging.INFO)
 
 # Configure the following variables
-TARGET_GROUP = "YouTube premium "
+TARGET_GROUP = "Amey-Purva"
 EXPENSE_AMOUNT = "1.00"  # Set the total amount of the expense
 EXPENSE_DESCRIPTION = "Test Expense from API"
 
@@ -23,10 +23,14 @@ splitwise = Splitwise(
     api_key=os.getenv('api_key')
 )
 
+target_group_found = False
+
 splitwise_groups = splitwise.getGroups()
 for group in splitwise_groups:
     #if group.getName() == "YouTube premium":
     if group.getName() == TARGET_GROUP:
+        target_group_found = True
+        logging.info(f"Target group '{TARGET_GROUP}' found with ID: {group.getId()}")
         target_group_id = group.getId()
         expense = Expense()
         expense.setGroupId(target_group_id)
@@ -37,13 +41,11 @@ for group in splitwise_groups:
 
         try:
             created_expense, errors = splitwise.createExpense(expense)
-            if errors:
-                print(f"Errors occurred: {errors}")
-            else:
-                print(f"Successfully created expense with ID: {created_expense.getId()}")
-                print(f"Expense description: {created_expense.getDescription()}")
+            logging.info(f"Successfully created expense with ID: {created_expense.getId()}")
+            logging.info(f"Expense description: {created_expense.getDescription()}")
         except Exception as e:
-            print(f"An error occurred: {e}")
+            logging.error(f"An error occurred: {e}")
         break
-    else:
-        print(f"Group '{group.getName()}' does not match target group '{TARGET_GROUP}'.")
+   
+if not target_group_found:
+    logging.warning(f"Group '{group.getName()}' does not match target group '{TARGET_GROUP}'.")
