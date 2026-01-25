@@ -18,9 +18,9 @@ EXPENSE_DESCRIPTION = "Test Expense from API"
 load_dotenv()
 
 splitwise = Splitwise(
-    consumer_key=os.getenv('consumer_key'),
-    consumer_secret=os.getenv('consumer_secret'),
-    api_key=os.getenv('api_key')
+    consumer_key=os.getenv('CONSUMER_KEY'),
+    consumer_secret=os.getenv('CONSUMER_SECRET'),
+    api_key=os.getenv('API_KEY')
 )
 
 target_group_found = False
