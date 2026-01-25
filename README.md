@@ -23,12 +23,14 @@ cd splitwise-add-expense-automation
 ```
 pip install -r requirements.txt
 ```
-### 3. Configure Environment Variables
+### 3. Configure Environment Variables Locally
 
-Create a .env file in the same directory as docker_compose.yaml file and fill in the required variable values. These variable values would be found when you [register your Splitwise Application](https://github.com/purvac/splitwise-add-expense-automation/edit/main/README.md#prerequisites)
+Create a .env file in the same directory as docker_compose.yaml file and fill in the required variable values. These variable values would be found when you register your Splitwise Application, as given in [Prerequisite Step](https://github.com/purvac/splitwise-add-expense-automation?tab=readme-ov-file#prerequisites). 
 ```
 CONSUMER_KEY=<consumer-key-value>
 CONSUMER_SECRET=<consumer-secret-value>
 API_KEY=<api-key-value>
 ```
-If you are running the GitHub Actions job, please make sure that these variables are also saved as secrets in your repository. 
+### Configure Environment Variables for GitHub Actions run
+
+If you are running this script in a GitHub Actions job, save the environment variables given above as secrets to your repository. 
