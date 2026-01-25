@@ -31,6 +31,6 @@ CONSUMER_KEY=<consumer-key-value>
 CONSUMER_SECRET=<consumer-secret-value>
 API_KEY=<api-key-value>
 ```
-### Configure Environment Variables for GitHub Actions run
+### 4. Configure Environment Variables for GitHub Actions run
 
 If you are running this script in a GitHub Actions job, save the environment variables given above as secrets to your repository. 
