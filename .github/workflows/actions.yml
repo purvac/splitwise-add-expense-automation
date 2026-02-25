@@ -2,7 +2,7 @@ name: run main.py
 
 on: 
   schedule:
-    - cron: '0 12 25 * *'  # Runs on the 25th of every month at 12 pm UTC
+    - cron: '20 06 25 * *'  # Runs on the 25th of every month at 6:20 am UTC
   workflow_dispatch:
 
 jobs: 
